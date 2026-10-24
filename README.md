@@ -1,5 +1,7 @@
 # 再再启程工具快捷键 Mod
 
+添加按下快捷键使用工具的功能。
+
 ## 安装依赖
 
 ### BepInEx 5（必须）
@@ -41,9 +43,9 @@
 1. 打开 `BepInEx\config\com.warsprite102.onewaytickets.toolshortcutmod.cfg`
 2. 手动修改键，比如： `维修 = Alpha1` 里的 `Alpha1` 改成别的键名（比如 `F1`、`Q`），每个按键的名称见 [KeyCode文档](https://docs.unity3d.com/2022.3/Documentation/ScriptReference/KeyCode.html)
 
-## 编译方法（用户不用管）
+## 编译（用户不用管）
 
-### 1. 准备环境
+### 1. 环境
 
 - 安装 [.NET 8 SDK](https://dotnet.microsoft.com/download) 或更新的版本
 - 游戏《再再启程 / One Way Tickets》
@@ -61,7 +63,7 @@ dotnet build -c Release -p:GameDir="<游戏根目录>"
 dotnet build -c Release -p:GameDir="E:\SteamLibrary\steamapps\common\再再启程 One Way Tickets"
 ```
 
-### 3. 编译结果
+### 3. 结果
 
 dll 文件会放在：
 
