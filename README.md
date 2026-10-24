@@ -4,9 +4,9 @@
 
 ### BepInEx 5（必须）
 
-mod 只有一个 dll，必须装的依赖只有 [BepInEx 5](https://github.com/BepInEx/BepInEx/)。
+`BepInEx 5`项目地址：[BepInEx 5](https://github.com/BepInEx/BepInEx/)。
 
-1. 打开 Releases 页面，选择 **5.4.x** 版本，下载 `BepInEx_win_x64_5.4.x.zip`（不确定是否兼容其他版本）。
+1. 打开 Releases 页面，选择 **5.4** 版本，下载 `BepInEx_win_x64_5.4.x.zip`（不确定是否兼容其他 5.x 版本）。
 2. 解压，把里面的文件全部放到游戏根目录，也就是和 `再再启程.exe` 放在同一个文件夹。放好后应该能看到 `BepInEx` 文件夹、`winhttp.dll` 和 `doorstop_config.ini`。
 3. 启动一次游戏再退出。游戏目录里出现 `BepInEx\LogOutput.log`，就说明 BepInEx 装好了。
 
@@ -33,9 +33,13 @@ mod 只有一个 dll，必须装的依赖只有 [BepInEx 5](https://github.com/B
 
 ### 改快捷键
 
-装了 ConfigurationManager：进游戏按 `F1`，找到 `Tool Shortcut Mod`，展开「工具快捷键」，点一下要改的项，再按新的键。
+**ConfigurationManager**：
+1. 进游戏按 `F1`，找到 `Tool Shortcut Mod`
+2. 展开“工具快捷键”，修改对应按键
 
-没装的话：打开 `BepInEx\config\com.warsprite102.onewaytickets.toolshortcutmod.cfg`，把 `维修 = Alpha1` 里的 `Alpha1` 改成别的键名（比如 `F1`、`Q`），保存后重启游戏。
+**手动**：
+1. 打开 `BepInEx\config\com.warsprite102.onewaytickets.toolshortcutmod.cfg`
+2. 手动修改键，比如： `维修 = Alpha1` 里的 `Alpha1` 改成别的键名（比如 `F1`、`Q`），每个按键的名称见 [KeyCode文档](https://docs.unity3d.com/2022.3/Documentation/ScriptReference/KeyCode.html)
 
 ## 编译方法（用户不用管）
 
@@ -50,7 +54,7 @@ mod 只有一个 dll，必须装的依赖只有 [BepInEx 5](https://github.com/B
 在项目根目录打开 PowerShell，运行：
 
 ```powershell
-dotnet build -c Release -p:GameDir="<游戏目录>"
+dotnet build -c Release -p:GameDir="<游戏根目录>"
 ```
 比如：
 ```powershell
@@ -59,14 +63,14 @@ dotnet build -c Release -p:GameDir="E:\SteamLibrary\steamapps\common\再再启�
 
 ### 3. 编译结果
 
-dll 会输出到：
+dll 文件会放在：
 
 ```
 bin\Release\netstandard2.1\OneWayTicket.ToolShortcutMod.dll
 ```
 
-把 dll 复制到：
+把这个 dll 文件复制到：
 
 ```
-<游戏目录>\BepInEx\plugins\ToolShortcutMod\
+<游戏根目录>\BepInEx\plugins\ToolShortcutMod\
 ```
