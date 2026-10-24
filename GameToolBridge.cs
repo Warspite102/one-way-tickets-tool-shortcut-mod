@@ -210,18 +210,16 @@ namespace OneWayTicket.ToolShortcutMod
 
         public bool IsToolBusy(ToolLogic logic)
         {
-            if (logic == null)
+            if (!(logic is FixWrench))
                 return false;
 
             try
             {
-                return ReadBoolField(logic, "is_wrenching")
-                    || ReadBoolField(logic, "pressing")
-                    || ReadBoolField(logic, "press_extinguisher");
+                return ReadBoolField(logic, "is_wrenching");
             }
             catch
             {
-                // 如果游戏更新后字段发生变化，保守地把工具视为 busy，避免误放下。
+                // 如果游戏更新后字段发生变化，保守地把维修工具视为 busy，避免误放下。
                 return true;
             }
         }
