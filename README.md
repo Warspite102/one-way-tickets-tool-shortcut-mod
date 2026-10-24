@@ -16,7 +16,7 @@
 
 ### ConfigurationManager（游戏内菜单，推荐）
 
-可以在游戏里按 `F1` 打开设置菜单，并在里面修改本 mod 的快捷键。不装也能用，只是要手动改 `<游戏根目录>\BepInEx\config\com.warsprite102.onewaytickets.toolshortcutmod.cfg`。
+可以在游戏里按 `F1` 打开设置菜单，并在里面修改本 mod 的快捷键。不装也能用，只是要手动改 `<游戏根目录>\BepInEx\config\com.warspite102.onewaytickets.toolshortcutmod.cfg`。
 
 1. 打开 [ConfigurationManager 的 Releases 页面](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases)，下载文件名带 `BepInEx5` 的 zip，比如 `BepInEx.ConfigurationManager_BepInEx5_v19.1.zip`，不要下 IL2CPP 版。
 2. 解压到游戏根目录，最终应该是 `BepInEx\plugins\ConfigurationManager\ConfigurationManager.dll`。
@@ -42,7 +42,7 @@
 2. 展开“工具快捷键”，修改对应按键
 
 **手动**：
-1. 打开 `BepInEx\config\com.warsprite102.onewaytickets.toolshortcutmod.cfg`
+1. 打开 `BepInEx\config\com.warspite102.onewaytickets.toolshortcutmod.cfg`
 2. 手动修改键，比如： `维修 = Alpha1` 里的 `Alpha1` 改成别的键名（比如 `F1`、`Q`），每个按键的名称见 [KeyCode文档](https://docs.unity3d.com/2022.3/Documentation/ScriptReference/KeyCode.html)
 
 ## 编译（用户不用管）
