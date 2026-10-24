@@ -2,7 +2,7 @@ using BepInEx;
 
 namespace OneWayTicket.ToolShortcutMod
 {
-    [BepInPlugin("com.warsprite102.onewaytickets.toolshortcutmod", "Tool Shortcut Mod", "0.1.0")]
+    [BepInPlugin("com.warspite102.onewaytickets.toolshortcutmod", "Tool Shortcut Mod", "0.1.0")]
     public sealed class ToolShortcutPlugin : BaseUnityPlugin
     {
         private ToolShortcutController _shortcutController;
