@@ -72,17 +72,13 @@ namespace OneWayTicket.ToolShortcutMod
         {
             if (_repairHotkey.Value.IsDown())
                 TryActivateTool(ToolCategory.Repair);
-
-            if (_extinguisherHotkey.Value.IsDown())
+            else if (_extinguisherHotkey.Value.IsDown())
                 TryActivateTool(ToolCategory.Extinguish);
-
-            if (_cleanHotkey.Value.IsDown())
+            else if (_cleanHotkey.Value.IsDown())
                 TryActivateTool(ToolCategory.Clean);
-
-            if (_sawHotkey.Value.IsDown())
+            else if (_sawHotkey.Value.IsDown())
                 TryActivateTool(ToolCategory.Saw);
-
-            if (_wakeUpHotkey.Value.IsDown())
+            else if (_wakeUpHotkey.Value.IsDown())
                 TryActivateTool(ToolCategory.WakeUp);
         }
 
