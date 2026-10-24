@@ -1,4 +1,4 @@
-# One Way Tickets 工具快捷键 Mod
+# 再再启程工具快捷键 Mod
 
 ## 安装依赖
 
