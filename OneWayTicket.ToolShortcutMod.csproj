@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>OneWayTicket.ToolShortcutMod</AssemblyName>
+    <RootNamespace>OneWayTicket.ToolShortcutMod</RootNamespace>
+    <Version>0.1.0</Version>
+
+    <!-- 默认游戏目录 -->
+    <GameDir Condition="'$(GameDir)' == ''">E:\SteamLibrary\steamapps\common\再再启程 One Way Tickets</GameDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>$(GameDir)\BepInEx\core\BepInEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameDir)\再再启程_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameDir)\再再启程_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameDir)\再再启程_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="World">
+      <HintPath>$(GameDir)\再再启程_Data\Managed\World.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Foundations">
+      <HintPath>$(GameDir)\再再启程_Data\Managed\Foundations.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AutoCodes">
+      <HintPath>$(GameDir)\再再启程_Data\Managed\AutoCodes.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(GameDir)\再再启程_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- 构建后把 dll 放进插件目录；游戏或 BepInEx 不存在时自动跳过 -->
+  <Target Name="DeployToPlugins" AfterTargets="Build" Condition="Exists('$(GameDir)\BepInEx\plugins')">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GameDir)\BepInEx\plugins\ToolShortcutMod" SkipUnchangedFiles="true" />
+  </Target>
+</Project>
