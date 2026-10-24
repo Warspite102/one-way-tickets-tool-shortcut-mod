@@ -51,6 +51,7 @@ namespace OneWayTicket.ToolShortcutMod
             if (toolView == null || toolView.logic == null || EventSystem.current == null)
                 return;
 
+            ResetRepairToolState(toolView.logic);
             toolView.Init(toolManagerView);
 
             var pointerEventData = new PointerEventData(EventSystem.current)
@@ -75,6 +76,17 @@ namespace OneWayTicket.ToolShortcutMod
 
             toolView.logic.OnPointerClick(pointerEventData);
             toolView.logic.OnPointerUp(pointerEventData);
+            ResetRepairToolState(toolView.logic);
+        }
+
+        private void ResetRepairToolState(ToolLogic logic)
+        {
+            if (!(logic is FixWrench))
+                return;
+
+            SetField(logic, "fix_mask", null);
+            SetField(logic, "is_wrenching", false);
+            SetField(logic, "is_using", false);
         }
 
         // 只能通过反射拿到工具的具体工作状态。
@@ -140,6 +152,28 @@ namespace OneWayTicket.ToolShortcutMod
             }
 
             return capacity;
+        }
+
+        private static void SetField(object target, string fieldName, object value)
+        {
+            for (var type = target.GetType(); type != null; type = type.BaseType)
+            {
+                var field = type.GetField(
+                    fieldName,
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+
+                if (field == null)
+                    continue;
+
+                if (value != null && !field.FieldType.IsInstanceOfType(value))
+                    continue;
+
+                if (value == null && field.FieldType.IsValueType)
+                    continue;
+
+                field.SetValue(target, value);
+                return;
+            }
         }
 
         public bool IsToolManagerViewValid(PlayerToolMgrView view, PlayerToolMgr toolManager)
